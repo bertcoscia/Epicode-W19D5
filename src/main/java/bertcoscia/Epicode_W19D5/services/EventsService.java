@@ -21,9 +21,9 @@ public class EventsService {
     @Autowired
     UsersService usersService;
 
-    public Event save(NewEventsDTO body) {
+    public Event save(NewEventsDTO body, UUID idUser) {
         if (this.repository.existsByDateAndLocation(body.date(), body.location())) throw new BadRequestException("There is already a scheduled event at " + body.location() + " for the day " + body.date());
-        User userFound = this.usersService.findById(body.idUser());
+        User userFound = this.usersService.findById(idUser);
         Event newEvent = new Event(body.name(), body.date(), body.description(), body.location(), body.maxPax(), userFound);
         return this.repository.save(newEvent);
     }

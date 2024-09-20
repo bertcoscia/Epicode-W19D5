@@ -32,14 +32,14 @@ public class EventsController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @PreAuthorize("hasAuthority('EVENT_ORGANISER')")
-    public NewEventsRespDTO save(@RequestBody @Validated NewEventsDTO body, BindingResult validationResult) {
+    public NewEventsRespDTO save(@RequestBody @Validated NewEventsDTO body, BindingResult validationResult, @AuthenticationPrincipal User currentAuthenticatedUser) {
         if (validationResult.hasErrors()) {
             String messages = validationResult.getAllErrors().stream()
                     .map(ObjectError::getDefaultMessage)
                     .collect(Collectors.joining(". "));
             throw new BadRequestException(messages);
         } else {
-            return new NewEventsRespDTO(this.service.save(body).getIdEvent());
+            return new NewEventsRespDTO(this.service.save(body, currentAuthenticatedUser.getIdUser()).getIdEvent());
         }
     }
 

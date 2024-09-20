@@ -16,8 +16,6 @@ public record NewEventsDTO(
         @NotEmpty(message = "Location required")
         String location,
         @NotNull(message = "Max number of participants required")
-        int maxPax,
-        @NotNull(message = "Organiser id required")
-        UUID idUser
+        int maxPax
 ) {
 }
