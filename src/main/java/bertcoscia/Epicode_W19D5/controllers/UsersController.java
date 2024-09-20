@@ -3,8 +3,6 @@ package bertcoscia.Epicode_W19D5.controllers;
 import bertcoscia.Epicode_W19D5.entities.User;
 import bertcoscia.Epicode_W19D5.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 

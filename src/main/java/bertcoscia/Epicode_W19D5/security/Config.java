@@ -18,8 +18,8 @@ public class Config {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.formLogin(AbstractHttpConfigurer::disable);
-        httpSecurity.csrf(AbstractHttpConfigurer::disable);
+        httpSecurity.formLogin(http -> http.disable());
+        httpSecurity.csrf(http -> http.disable());
         httpSecurity.sessionManagement(http -> http.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         httpSecurity.authorizeHttpRequests(http -> http.requestMatchers("/**").permitAll());
         return httpSecurity.build();

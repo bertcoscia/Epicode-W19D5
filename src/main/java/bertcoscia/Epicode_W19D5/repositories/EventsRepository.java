@@ -16,5 +16,5 @@ public interface EventsRepository extends JpaRepository<Event, UUID> {
 
     boolean existsByDateAndLocation(LocalDate date, String Location);
 
-    Optional<List<Event>> findByUserId(UUID id);
+    Optional<List<Event>> findByUserIdUser(UUID id);
 }

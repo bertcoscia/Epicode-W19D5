@@ -56,7 +56,7 @@ public class EventsService {
     }
 
     public List<Event> findByUserId(UUID id) {
-        return this.repository.findByUserId(id).orElseThrow(() -> new NotFoundException("There are no events"));
+        return this.repository.findByUserIdUser(id).orElseThrow(() -> new NotFoundException("There are no events"));
     }
 
 }
