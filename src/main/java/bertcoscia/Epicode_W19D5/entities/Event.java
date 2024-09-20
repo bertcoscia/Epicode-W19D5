@@ -23,6 +23,7 @@ public class Event {
     private String description;
     private String location;
     private int maxPax;
+    private int numParticipants;
     @Setter(AccessLevel.NONE)
     @ManyToOne
     @JoinColumn(name = "id_organizer")
@@ -35,5 +36,6 @@ public class Event {
         this.location = location;
         this.maxPax = maxPax;
         this.user = user;
+        this.numParticipants = 0;
     }
 }
