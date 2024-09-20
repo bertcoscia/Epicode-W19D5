@@ -237,7 +237,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"{{$randomWord}}\",\n    \"date\": \"{{randomFutureDate}}\",\n    \"description\": \"{{$randomPhrase}}\",\n    \"location\": \"{{$randomCity}}\",\n    \"maxPax\": \"1\",\n    \"idUser\": \"1e736695-43ad-4f2d-a4af-82e118a9bc32\"\n}",
+									"raw": "{\n    \"name\": \"{{$randomWord}}\",\n    \"date\": \"{{randomFutureDate}}\",\n    \"description\": \"{{$randomPhrase}}\",\n    \"location\": \"{{$randomCity}}\",\n    \"maxPax\": \"1\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
