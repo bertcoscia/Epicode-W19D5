@@ -1,0 +1,606 @@
+{
+	"info": {
+		"_postman_id": "9c28cb5f-3ff9-4aab-9029-3f1ac67ea004",
+		"name": "Epicode-W19D5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36267645"
+	},
+	"item": [
+		{
+			"name": "Requests",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Create new user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{$randomFirstName}}\",\n    \"surname\": \"{{$randomLastName}}\",\n    \"email\": \"{{$randomEmail}}\",\n    \"password\": \"1234\",\n    \"role\": \"user\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/signup",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"Zane29@yahoo.com\",\n    \"password\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get own profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjY4MzQ2MTcsImV4cCI6MTcyNzQzOTQxNywic3ViIjoiMWU3MzY2OTUtNDNhZC00ZjJkLWE0YWYtODJlMTE4YTliYzMyIn0.ui_4ofbQtYjLUNvxqMI5dPTVeXQ482DalNQxeVTfStZcAIPLQZ61ou-OSrXyKSxzWbUlstMjBMFkUZimVdqlfA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/me",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update own profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjY4MzQ2MTcsImV4cCI6MTcyNzQzOTQxNywic3ViIjoiMWU3MzY2OTUtNDNhZC00ZjJkLWE0YWYtODJlMTE4YTliYzMyIn0.ui_4ofbQtYjLUNvxqMI5dPTVeXQ482DalNQxeVTfStZcAIPLQZ61ou-OSrXyKSxzWbUlstMjBMFkUZimVdqlfA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Aldo\",\n    \"surname\": \"Baglio\",\n    \"email\": \"{{$randomEmail}}\",\n    \"password\": \"1234\",\n    \"role\": \"event_organiser\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/me",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjY4MzQ2MTcsImV4cCI6MTcyNzQzOTQxNywic3ViIjoiMWU3MzY2OTUtNDNhZC00ZjJkLWE0YWYtODJlMTE4YTliYzMyIn0.ui_4ofbQtYjLUNvxqMI5dPTVeXQ482DalNQxeVTfStZcAIPLQZ61ou-OSrXyKSxzWbUlstMjBMFkUZimVdqlfA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find user by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjY4MzQ2MTcsImV4cCI6MTcyNzQzOTQxNywic3ViIjoiMWU3MzY2OTUtNDNhZC00ZjJkLWE0YWYtODJlMTE4YTliYzMyIn0.ui_4ofbQtYjLUNvxqMI5dPTVeXQ482DalNQxeVTfStZcAIPLQZ61ou-OSrXyKSxzWbUlstMjBMFkUZimVdqlfA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:{{idUser}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":{{idUser}}"
+									],
+									"variable": [
+										{
+											"key": "{{idUser}}",
+											"value": "8de2f47f-0fbe-4426-9bce-b586b8bef31b"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Events",
+					"item": [
+						{
+							"name": "Create new event",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"function randomFutureDate() {",
+											"    const currentDate = new Date();",
+											"    const futureYears = 2;",
+											"    const futureDate = new Date(",
+											"        currentDate.getFullYear() + Math.floor(Math.random() * futureYears), ",
+											"        Math.floor(Math.random() * 12), ",
+											"        Math.floor(Math.random() * 28) + 1",
+											"    );",
+											"    return futureDate.toISOString().split('T')[0]; // Ritorna solo la parte yyyy-MM-dd",
+											"}",
+											"",
+											"pm.environment.set(\"randomFutureDate\", randomFutureDate());"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjY4MzQ2MTcsImV4cCI6MTcyNzQzOTQxNywic3ViIjoiMWU3MzY2OTUtNDNhZC00ZjJkLWE0YWYtODJlMTE4YTliYzMyIn0.ui_4ofbQtYjLUNvxqMI5dPTVeXQ482DalNQxeVTfStZcAIPLQZ61ou-OSrXyKSxzWbUlstMjBMFkUZimVdqlfA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{$randomWord}}\",\n    \"date\": \"{{randomFutureDate}}\",\n    \"description\": \"{{$randomPhrase}}\",\n    \"location\": \"{{$randomCity}}\",\n    \"maxPax\": \"1\",\n    \"idUser\": \"1e736695-43ad-4f2d-a4af-82e118a9bc32\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get own events",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjY4MzQ2MTcsImV4cCI6MTcyNzQzOTQxNywic3ViIjoiMWU3MzY2OTUtNDNhZC00ZjJkLWE0YWYtODJlMTE4YTliYzMyIn0.ui_4ofbQtYjLUNvxqMI5dPTVeXQ482DalNQxeVTfStZcAIPLQZ61ou-OSrXyKSxzWbUlstMjBMFkUZimVdqlfA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events/my-events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										"my-events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get event by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjY4MzQ2MTcsImV4cCI6MTcyNzQzOTQxNywic3ViIjoiMWU3MzY2OTUtNDNhZC00ZjJkLWE0YWYtODJlMTE4YTliYzMyIn0.ui_4ofbQtYjLUNvxqMI5dPTVeXQ482DalNQxeVTfStZcAIPLQZ61ou-OSrXyKSxzWbUlstMjBMFkUZimVdqlfA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events/:{{idEvent}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":{{idEvent}}"
+									],
+									"variable": [
+										{
+											"key": "{{idEvent}}",
+											"value": "2bc6f035-6bb4-415f-afc1-52068085f0b0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update event",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjY4Mzc2MzEsImV4cCI6MTcyNzQ0MjQzMSwic3ViIjoiNjc5ODg4OWQtNTE5Yi00NTU5LWE1YzMtMDVjM2JhOGM0ZTYwIn0.9eoJUbdn7Na4_udUIy7a5oauAZEkhrd96_ZRG54786tY1z5ukhzyNMIqy8f8yQTDVAZYgQ4L8ISd79gNTFY1KA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Aldo Baglio Festival\",\n    \"date\": \"2024-07-20\",\n    \"description\": \"Non posso nè scendere, nè salire\",\n    \"location\": \"North Kaciland\",\n    \"maxPax\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/events/:{{idEvent}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":{{idEvent}}"
+									],
+									"variable": [
+										{
+											"key": "{{idEvent}}",
+											"value": "2bc6f035-6bb4-415f-afc1-52068085f0b0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all events",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjY4MzQ2MTcsImV4cCI6MTcyNzQzOTQxNywic3ViIjoiMWU3MzY2OTUtNDNhZC00ZjJkLWE0YWYtODJlMTE4YTliYzMyIn0.ui_4ofbQtYjLUNvxqMI5dPTVeXQ482DalNQxeVTfStZcAIPLQZ61ou-OSrXyKSxzWbUlstMjBMFkUZimVdqlfA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete event",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenAldo}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events/:{{idEvent}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":{{idEvent}}"
+									],
+									"variable": [
+										{
+											"key": "{{idEvent}}",
+											"value": "f84afd94-cc94-4d89-a8bc-0da495af1971"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Participations",
+					"item": [
+						{
+							"name": "Create new participation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{2ndToken (USER)}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idEvent\": \"a4cc7d8d-c103-4342-8d0b-fca8bb631a1a\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/participations",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"participations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get own participations",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{2ndToken (USER)}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/participations/my-participations",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"participations",
+										"my-participations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete participation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{2ndToken (USER)}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/participations/:{{idParticipation}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"participations",
+										":{{idParticipation}}"
+									],
+									"variable": [
+										{
+											"key": "{{idParticipation}}",
+											"value": "3389206b-df95-4f6c-af5a-8fc5bde5916b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get participations by event",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenAldo}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/participations/:{{idEvent}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"participations",
+										":{{idEvent}}"
+									],
+									"variable": [
+										{
+											"key": "{{idEvent}}",
+											"value": "a4cc7d8d-c103-4342-8d0b-fca8bb631a1a"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3001",
+			"type": "string"
+		},
+		{
+			"key": "TokenAldo",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjY4MzQ2MTcsImV4cCI6MTcyNzQzOTQxNywic3ViIjoiMWU3MzY2OTUtNDNhZC00ZjJkLWE0YWYtODJlMTE4YTliYzMyIn0.ui_4ofbQtYjLUNvxqMI5dPTVeXQ482DalNQxeVTfStZcAIPLQZ61ou-OSrXyKSxzWbUlstMjBMFkUZimVdqlfA",
+			"type": "string"
+		},
+		{
+			"key": "2ndToken (USER)",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjY4Mzc2MzEsImV4cCI6MTcyNzQ0MjQzMSwic3ViIjoiNjc5ODg4OWQtNTE5Yi00NTU5LWE1YzMtMDVjM2JhOGM0ZTYwIn0.9eoJUbdn7Na4_udUIy7a5oauAZEkhrd96_ZRG54786tY1z5ukhzyNMIqy8f8yQTDVAZYgQ4L8ISd79gNTFY1KA",
+			"type": "string"
+		}
+	]
+}
