@@ -7,6 +7,7 @@ import bertcoscia.Epicode_W19D5.payloads.NewUsersDTO;
 import bertcoscia.Epicode_W19D5.payloads.NewUsersRespDTO;
 import bertcoscia.Epicode_W19D5.services.AuthService;
 import bertcoscia.Epicode_W19D5.services.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
