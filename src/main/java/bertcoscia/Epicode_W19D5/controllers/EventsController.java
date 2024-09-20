@@ -43,9 +43,9 @@ public class EventsController {
         }
     }
 
-    @GetMapping
-    public Event findById(UUID id) {
-        return this.service.findById(id);
+    @GetMapping("/{idEvent}")
+    public Event findById(@PathVariable UUID idEvent) {
+        return this.service.findById(idEvent);
     }
 
     @GetMapping("/my-events")
@@ -56,7 +56,7 @@ public class EventsController {
 
     @PutMapping("/{idEvent}")
     @PreAuthorize("hasAuthority('EVENT_ORGANISER')")
-    public Event findByIdAndUpdate(UUID idEvent, @AuthenticationPrincipal User currentAuthenticatedUser, @RequestBody @Validated Event body, BindingResult validationResult) {
+    public Event findByIdAndUpdate(@PathVariable UUID idEvent, @AuthenticationPrincipal User currentAuthenticatedUser, @RequestBody @Validated Event body, BindingResult validationResult) {
         if (validationResult.hasErrors()) {
             String messages = validationResult.getAllErrors().stream()
                     .map(ObjectError::getDefaultMessage)
@@ -64,6 +64,18 @@ public class EventsController {
             throw new BadRequestException(messages);
         }
             return this.service.findByIdAndUpdate(currentAuthenticatedUser.getIdUser(), idEvent, body);
+    }
+
+    @DeleteMapping("/{idEvent}")
+    @PreAuthorize("hasAuthority('EVENT_ORGANISER')")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void findByIdAndDelete(@PathVariable UUID idEvent, @AuthenticationPrincipal User currentAuthenticatedUser) {
+        this.service.findByIdAndDelete(idEvent, currentAuthenticatedUser.getIdUser());
+    }
+
+    @GetMapping
+    public List<Event> findAll() {
+        return this.service.findAll();
     }
 
 

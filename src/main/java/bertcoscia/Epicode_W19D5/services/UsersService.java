@@ -31,7 +31,7 @@ public class UsersService {
         } else {
             throw new BadRequestException("Value of 'role' is not valid, choose one between USER and EVENT_ORGANISER");
         }
-        User newUser = new User(body.name(), body.surname(), body.surname(), bcrypt.encode(body.password()), newUserRole);
+        User newUser = new User(body.name(), body.surname(), body.email(), bcrypt.encode(body.password()), newUserRole);
         return this.repository.save(newUser);
     }
 

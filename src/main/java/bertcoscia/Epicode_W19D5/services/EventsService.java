@@ -50,9 +50,13 @@ public class EventsService {
         }
     }
 
-    public void findByIdAndDelete(UUID id) {
-        Event found = this.findById(id);
+    public void findByIdAndDelete(UUID idEvent, UUID idUser) {
+        Event found = this.findById(idEvent);
+        if (!found.getUser().getIdUser().equals(idUser)) {
+            throw new UnauthorizedException("You do not have the permission to delete this event");
+        } else {
         this.repository.delete(found);
+        }
     }
 
     public List<Event> findByUserId(UUID id) {
